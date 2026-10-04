@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { API_BASE_URL } from '../api';
 import { AUDIO_TRACKS, VOICE_NARRATORS } from '../mockData';
 import {
   Palette,
@@ -85,7 +86,7 @@ backgroundColor,
     formData.append("image", file);
 
     const response = await fetch(
-      "http://localhost:5000/api/upload/image",
+      `${API_BASE_URL}/api/upload/image`,
       {
         method: "POST",
         body: formData,
@@ -119,7 +120,7 @@ const handleLogoChange = async (e) => {
     formData.append("image", file);
 
     const response = await fetch(
-      "http://localhost:5000/api/upload/image",
+      `${API_BASE_URL}/api/upload/image`,
       {
         method: "POST",
         body: formData,

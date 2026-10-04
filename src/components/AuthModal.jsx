@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { API_BASE_URL } from '../api';
 import { 
   X, 
   Wand2, 
@@ -49,7 +50,7 @@ export const AuthModal = () => {
     // ================= SIGNUP =================
     if (mode === "signup") {
       const response = await fetch(
-        "http://localhost:5000/api/auth/signup",
+        `${API_BASE_URL}/api/auth/signup`,
         {
           method: "POST",
           headers: {
@@ -83,7 +84,7 @@ export const AuthModal = () => {
 
     // ================= LOGIN =================
     const response = await fetch(
-      "http://localhost:5000/api/auth/login",
+      `${API_BASE_URL}/api/auth/login`,
       {
         method: "POST",
         headers: {
@@ -132,7 +133,7 @@ export const AuthModal = () => {
 const handleVerifyEmail = async () => {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/auth/verify-email",
+      `${API_BASE_URL}/api/auth/verify-email`,
       {
         method: "POST",
         headers: {

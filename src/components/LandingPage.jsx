@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { API_BASE_URL } from '../api';
 import { 
   Wand2, 
   Sparkles, 
@@ -31,7 +32,7 @@ export const LandingPage = () => {
   useEffect(() => {
     const fetchTemplates = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/templates');
+        const response = await fetch(`${API_BASE_URL}/api/templates`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -66,7 +67,7 @@ export const LandingPage = () => {
   const handleUseTemplate = async (templateCard) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/templates/${templateCard._id}`
+        `${API_BASE_URL}/api/templates/${templateCard._id}`
       );
       const template = await response.json();
 

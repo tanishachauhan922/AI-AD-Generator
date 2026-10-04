@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { API_BASE_URL } from '../api';
 import { 
   Settings, 
   Sparkles, 
@@ -50,7 +51,7 @@ export const SettingsPage = () => {
 
     setAccountSaving(true);
     try {
-      const response = await fetch('http://localhost:5000/api/auth/profile', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/profile`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -93,7 +94,7 @@ export const SettingsPage = () => {
       const formData = new FormData();
       formData.append('image', file);
 
-      const response = await fetch('http://localhost:5000/api/upload/image', {
+      const response = await fetch(`${API_BASE_URL}/api/upload/image`, {
         method: 'POST',
         body: formData
       });
@@ -123,7 +124,7 @@ export const SettingsPage = () => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      "http://localhost:5000/api/auth/brand-kit",
+      `${API_BASE_URL}/api/auth/brand-kit`,
       {
         method: "PATCH",
         headers: {

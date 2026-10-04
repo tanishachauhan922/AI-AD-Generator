@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { API_BASE_URL } from '../api';
 
 const AppContext = createContext();
 
@@ -38,7 +39,7 @@ export const AppProvider = ({ children }) => {
   const fetchProfile = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/profile",
+        `${API_BASE_URL}/api/auth/profile`,
         {
           method: "GET",
           headers: {
@@ -68,7 +69,7 @@ setBrandKit(data.brandKit || {
 
 try {
   const projectsResponse = await fetch(
-    "http://localhost:5000/api/projects",
+    `${API_BASE_URL}/api/projects`,
     {
       method: "GET",
       headers: {
@@ -132,7 +133,7 @@ const [brandKit, setBrandKit] = useState({
     }
 
     const profileResponse = await fetch(
-      "http://localhost:5000/api/auth/profile",
+      `${API_BASE_URL}/api/auth/profile`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
@@ -145,7 +146,7 @@ const [brandKit, setBrandKit] = useState({
     }
 
     const projectsResponse = await fetch(
-      "http://localhost:5000/api/projects",
+      `${API_BASE_URL}/api/projects`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
@@ -249,7 +250,7 @@ const navigateTo = (tab, payload = null) => {
     }
 
     const response = await fetch(
-      "http://localhost:5000/api/projects",
+      `${API_BASE_URL}/api/projects`,
       {
         method: "POST",
         headers: {
@@ -304,7 +305,7 @@ const navigateTo = (tab, payload = null) => {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/projects/${projectId}/status`,
+        `${API_BASE_URL}/api/projects/${projectId}/status`,
         {
           method: "PATCH",
           headers: {
@@ -361,7 +362,7 @@ const navigateTo = (tab, payload = null) => {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/projects/${project._id}/critic-score`,
+        `${API_BASE_URL}/api/projects/${project._id}/critic-score`,
         {
           method: "PATCH",
           headers: {
@@ -412,7 +413,7 @@ const navigateTo = (tab, payload = null) => {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/projects/${projectId}`,
+        `${API_BASE_URL}/api/projects/${projectId}`,
         {
           method: "DELETE",
           headers: {

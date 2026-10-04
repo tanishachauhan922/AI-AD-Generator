@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
+import { API_BASE_URL } from '../api';
 
 import {
   Palette,
@@ -34,7 +35,7 @@ export const TemplateGallery = () => {
     const fetchTemplates = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/templates"
+          `${API_BASE_URL}/api/templates`
         );
 
         const data = await response.json();
@@ -82,7 +83,7 @@ export const TemplateGallery = () => {
  const handleUseTemplate = async (tpl) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/templates/${tpl._id}`
+      `${API_BASE_URL}/api/templates/${tpl._id}`
     );
 
     const template = await response.json();

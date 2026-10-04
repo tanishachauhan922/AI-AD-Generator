@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { API_BASE_URL } from '../api';
 import { 
   Wand2, 
   Sparkles, 
@@ -76,8 +77,8 @@ const handleGenerate = async (e) => {
     // Decide endpoint based on creative type
     const endpoint =
       creativeType === "video"
-        ? "http://localhost:5000/api/generate-ad/generate-video"
-        : "http://localhost:5000/api/generate-ad/generate";
+        ? `${API_BASE_URL}/api/generate-ad/generate-video`
+        : `${API_BASE_URL}/api/generate-ad/generate`;
 
     const response = await fetch(endpoint, {
       method: "POST",
@@ -176,7 +177,7 @@ const handleGenerate = async (e) => {
 const pollVideoStatus = async (magicHourProjectId, token) => {
   const checkStatus = async () => {
     const response = await fetch(
-      `http://localhost:5000/api/generate-ad/video-status/${encodeURIComponent(magicHourProjectId)}`,
+      `${API_BASE_URL}/api/generate-ad/video-status/${encodeURIComponent(magicHourProjectId)}`,
       {
         method: "GET",
         headers: {

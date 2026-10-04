@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { API_BASE_URL } from '../api';
 import {
   CheckCircle2,
   AlertTriangle,
@@ -60,7 +61,7 @@ export const CreativeCriticPanel = () => {
       }
 
       const response = await fetch(
-        'http://localhost:5000/api/critic/analyze',
+        `${API_BASE_URL}/api/critic/analyze`,
         {
           method: 'POST',
           headers: {
