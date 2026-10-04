@@ -13,6 +13,7 @@ const Template = require('../models/Template');
     const templates = await Template.find(filter).select('-elements');
     res.json(templates);
   } catch (err) {
+    console.error("FETCH TEMPLATES ERROR:", err);
     res.status(500).json({ error: 'Failed to fetch templates' });
   }
 };

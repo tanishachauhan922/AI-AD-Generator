@@ -17,7 +17,6 @@ app.use(cors());
 
 const connectDB = require("./config/db");
 const uploadToCloud = require("./routes/uploadToCloud");
-connectDB();
 
 
 
@@ -35,6 +34,16 @@ app.get("/",(req,res)=>{
 })
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-});
+const startServer = async () => {
+    try {
+        await connectDB();
+        app.listen(PORT, () => {
+            console.log(`Server listening on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error("Server startup failed:", error.message);
+        process.exitCode = 1;
+    }
+};
+
+startServer();
