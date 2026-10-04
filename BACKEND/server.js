@@ -4,7 +4,6 @@ const dotenv = require("dotenv");
 const app=express();
 dotenv.config();
 //adding routes
-const testroute=require("./routes/test")
 const authRoutes = require("./routes/authRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 
@@ -21,7 +20,7 @@ const uploadToCloud = require("./routes/uploadToCloud");
 connectDB();
 
 
-app.use("/api",testroute);
+
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/upload", uploadToCloud);
@@ -36,8 +35,3 @@ app.get("/",(req,res)=>{
 })
 
 
-app.listen(5000, () => {
-  console.log("Backend running on http://localhost:5000");
-
- 
-});
