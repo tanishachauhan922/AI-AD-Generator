@@ -23,9 +23,13 @@ const getonetemplate=async (req, res) => {
     const template = await Template.findById(req.params.id);
     if (!template) return res.status(404).json({ error: 'Template not found' });
     res.json(template);
+  // } catch (err) {
+  //   res.status(500).json({ error: 'Failed to fetch template' });
+  // }
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch template' });
-  }
+  console.error("FETCH TEMPLATES ERROR:", err);
+  res.status(500).json({ error: err.message });
+}
 };
  //mongo db m data daalne k lie
 const createTemplate = async (req, res) => {
