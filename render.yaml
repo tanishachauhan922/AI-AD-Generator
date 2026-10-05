@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ai-ad-generator-api
+    runtime: node
+    plan: free
+    rootDir: BACKEND
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
