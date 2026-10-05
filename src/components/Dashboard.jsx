@@ -61,7 +61,7 @@ export const Dashboard = () => {
       </div>
 
       {/* Metrics & Action Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         
         {/* Card 1: Active Campaigns */}
         <div className="glass-card p-5 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-200 relative overflow-hidden flex flex-col justify-between">
@@ -129,25 +129,6 @@ export const Dashboard = () => {
               </span>
               <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
             </button>
-          </div>
-        </div>
-
-        {/* Card 4: Credits Balance */}
-        <div className="glass-card p-5 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-200 relative overflow-hidden flex flex-col justify-between">
-          <div>
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">Credits Balance</span>
-              <div className="p-2 rounded-lg bg-amber-500/10 text-amber-500 dark:text-amber-400">
-                <Zap className="w-4 h-4" />
-              </div>
-            </div>
-            <p className="text-3xl font-extrabold text-slate-900 dark:text-white mt-3">{user.creditsRemaining} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">/ {user.creditsTotal}</span></p>
-          </div>
-          <div className="w-full bg-slate-800 dark:bg-slate-800 light:bg-slate-200 h-1.5 rounded-full mt-3 overflow-hidden">
-            <div 
-              className="bg-gradient-to-r from-amber-500 to-indigo-500 h-full rounded-full" 
-              style={{ width: `${(user.creditsRemaining / user.creditsTotal) * 100}%` }}
-            />
           </div>
         </div>
 
@@ -302,75 +283,6 @@ export const Dashboard = () => {
         </tbody>
 
       </table>
-
-    </div>
-  </div>
-
-  {/* Usage Activity Progress */}
-  <div className="glass-card p-6 rounded-2xl border border-slate-800 dark:border-slate-800 light:border-slate-200 space-y-4">
-
-    <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-      Monthly Creative Quota & AI Usage
-    </h3>
-
-    <div className="space-y-3">
-
-      <div>
-        <div className="flex justify-between text-xs mb-1">
-          <span className="text-slate-500 dark:text-slate-400">
-            HD Image Generations
-          </span>
-
-          <span className="text-slate-800 dark:text-slate-200 font-semibold">
-            42 / 100 images
-          </span>
-        </div>
-
-        <div className="w-full bg-slate-800 dark:bg-slate-800 light:bg-slate-200 h-2 rounded-full overflow-hidden">
-          <div
-            className="bg-indigo-500 h-full rounded-full"
-            style={{ width: '42%' }}
-          />
-        </div>
-      </div>
-
-      <div>
-        <div className="flex justify-between text-xs mb-1">
-          <span className="text-slate-500 dark:text-slate-400">
-            AI Video Reel Seconds Rendered
-          </span>
-
-          <span className="text-slate-800 dark:text-slate-200 font-semibold">
-            180 / 300 sec
-          </span>
-        </div>
-
-        <div className="w-full bg-slate-800 dark:bg-slate-800 light:bg-slate-200 h-2 rounded-full overflow-hidden">
-          <div
-            className="bg-pink-500 h-full rounded-full"
-            style={{ width: '60%' }}
-          />
-        </div>
-      </div>
-
-      <div>
-        <div className="flex justify-between text-xs mb-1">
-          <span className="text-slate-500 dark:text-slate-400">
-            AI Critic Pre-Audits Executed
-          </span>
-
-          <span className="text-slate-800 dark:text-slate-200 font-semibold">
-            28 / 50 audits
-          </span>
-        </div>
-
-        <div className="w-full bg-slate-800 dark:bg-slate-800 light:bg-slate-200 h-2 rounded-full overflow-hidden">
-          <div
-            className="bg-amber-500 h-full rounded-full"
-            style={{ width: '56%' }}
-          />
-        </div>
-      </div>
 
     </div>
   </div>

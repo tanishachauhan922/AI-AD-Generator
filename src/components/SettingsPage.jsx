@@ -7,7 +7,6 @@ import {
   Palette, 
   Cpu, 
   Key, 
-  Zap, 
   Sun, 
   Moon, 
   Check, 
@@ -15,7 +14,6 @@ import {
   ShieldCheck, 
   User,
   Mail,
-  CreditCard
 } from 'lucide-react';
 
 export const SettingsPage = () => {
@@ -386,10 +384,6 @@ export const SettingsPage = () => {
             <div className="flex items-center justify-between">
               <span className="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-500 dark:text-indigo-300 text-[10px] font-bold uppercase">
                 {user.tier}
-              </span>
-              <span className="text-xs font-bold text-amber-500 dark:text-amber-400 flex items-center space-x-1">
-                <Zap className="w-3.5 h-3.5" />
-                <span>{user.creditsRemaining} Credits</span>
               </span>
             </div>
 

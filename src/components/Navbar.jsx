@@ -9,7 +9,6 @@ import {
   FolderKanban, 
   Settings, 
   ChevronDown,
-  Zap,
   LogOut
 } from 'lucide-react';
 
@@ -92,15 +91,6 @@ export const Navbar = () => {
           {/* Right Action Icons & User Control */}
           <div className="flex items-center space-x-3">
             
-            {/* Credit Badge */}
-            <div 
-              className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-amber-500/30 text-xs font-semibold text-amber-500 dark:text-amber-400"
-              title="AI Credits Remaining"
-            >
-              <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400/20" />
-              <span>{user.creditsRemaining} Credits</span>
-            </div>
-
             {/* Profile Menu / Login Button */}
             {isLoggedIn ? (
               <div className="relative">

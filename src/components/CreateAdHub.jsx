@@ -154,22 +154,43 @@ const handleGenerate = async (e) => {
     // =========================
 
     else {
+      if (typeof data.imageUrl !== "string" || !data.imageUrl.trim()) {
+        throw new Error("The server did not return a generated image URL.");
+      }
+
       console.log("✅ Advertisement generated successfully");
 
       console.log("Headline:", data.headline);
       console.log("Subtext:", data.subtext);
       console.log("Image Prompt:", data.imagePrompt);
       console.log("Image URL:", data.imageUrl);
+
+      navigateTo("studio", {
+        title: productName,
+        type: "image",
+        headline: data.headline,
+        subtext: data.subtext,
+        cta: ctaText,
+        brandName: productName,
+        imageUrl: data.imageUrl,
+        aspectRatio: data.aspectRatio || aspectRatio,
+        platform,
+        region,
+        language,
+        style: adStyle,
+      });
     }
 
   } catch (error) {
     console.error("❌ Generation error:", error);
-    if (creativeType === "video") {
-      addToast(
-        error instanceof Error ? error.message : "Video generation failed.",
-        "error"
-      );
-    }
+    addToast(
+      error instanceof Error
+        ? error.message
+        : creativeType === "video"
+          ? "Video generation failed."
+          : "Image generation failed.",
+      "error"
+    );
   } finally {
     setIsGenerating(false);
   }
